@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c6_online/prefrences/my_prefrences.dart';
 import 'package:islami_c6_online/providers/my_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ShowLanguageBottomSheet extends StatefulWidget {
   const ShowLanguageBottomSheet({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class _ShowLanguageBottomSheetState extends State<ShowLanguageBottomSheet> {
               onTap: (){
                 pro.changeLanguage('en');
                 Navigator.pop(context);
+                my_prefrences.setLanguage('en');
               },
               child: showLanguageSelected('English',pro.AppLanguage=='en'?true:false)),
           SizedBox(height: 15,),
@@ -29,6 +32,7 @@ class _ShowLanguageBottomSheetState extends State<ShowLanguageBottomSheet> {
               onTap: (){
                 pro.changeLanguage('ar');
                 Navigator.pop(context);
+                my_prefrences.setLanguage('ar');
               },
               child: showLanguageSelected('العربية',pro.AppLanguage=='ar'?true:false)),
         ],

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c6_online/prefrences/my_prefrences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyProviderApp extends ChangeNotifier{
 
-  String AppLanguage='en';
+  String AppLanguage=my_prefrences().getlanguage()?? 'en';
   ThemeMode themeMode=ThemeMode.light;
 
   void changeLanguage(String languageCode){
