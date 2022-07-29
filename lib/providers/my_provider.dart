@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class MyProviderApp extends ChangeNotifier{
 
-  String AppLanguage=my_prefrences().getlanguage()?? 'en';
+  String AppLanguage=my_prefrences.getlanguage()?? 'en';
   ThemeMode themeMode=ThemeMode.light;
 
   void changeLanguage(String languageCode){

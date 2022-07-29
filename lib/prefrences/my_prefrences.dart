@@ -1,17 +1,20 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class my_prefrences{
-  static SharedPreferences? pref;
+  static SharedPreferences? _pref;
 
   static Future init() async{
-    pref=await SharedPreferences.getInstance();
+    if (_pref == null) {
+      _pref = await SharedPreferences.getInstance();
+    }
+    //_pref=await SharedPreferences.getInstance();
   }
 
-  static Future setLanguage(Language)async{
-    await pref?.setString("language", Language);
+  static Future setLanguage(String Language)async{
+    await _pref?.setString("language", Language);
   }
 
-  String? getlanguage() {
-    pref?.getString('language');
+  static String? getlanguage() {
+    return (_pref?.getString('language'));
   }
 }
